@@ -1,8 +1,8 @@
 import {
   NativeStackNavigationProp,
   NativeStackScreenProps,
-} from "@react-navigation/native-stack";
-import { Product } from "../types/productTypes";
+} from '@react-navigation/native-stack';
+import { Product } from '../types/productTypes';
 
 export type RootStackParamList = {
   Products: undefined;
@@ -15,25 +15,25 @@ export type RootStackParamList = {
 
 export type ProductListNavigationProp = NativeStackNavigationProp<
   RootStackParamList,
-  "Products"
+  'Products'
 >;
 
 export type CartScreenNavigationProp = NativeStackNavigationProp<
   RootStackParamList,
-  "Cart"
+  'Cart'
 >;
 
 export type FavoriteScreenNavigationProp = NativeStackNavigationProp<
   RootStackParamList,
-  "Favorite"
+  'Favorite'
 >;
 
 export type ProductDetailScreenProps = NativeStackScreenProps<
   RootStackParamList,
-  "ProductDetail"
+  'ProductDetail'
 >;
 
 export type FavoriteDetailScreenProps = NativeStackScreenProps<
   RootStackParamList,
-  "FavoriteDetail"
+  'FavoriteDetail'
 >;

@@ -1,7 +1,7 @@
-import React, { FC, memo } from "react";
-import { View, StyleSheet, FlatList } from "react-native";
-import CartItem from "../molecules/CartItem";
-import { CartItem as CartItemType } from "../../types/cartTypes";
+import React, { FC, memo } from 'react';
+import { View, StyleSheet, FlatList } from 'react-native';
+import CartItem from '../molecules/CartItem';
+import { CartItem as CartItemType } from '../../types/cartTypes';
 
 interface CartListProps {
   items: CartItemType[];

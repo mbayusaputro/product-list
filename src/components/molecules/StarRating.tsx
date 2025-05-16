@@ -1,6 +1,6 @@
-import React, { FC } from "react";
-import { View, StyleSheet } from "react-native";
-import Icon from "react-native-vector-icons/MaterialIcons";
+import React, { FC, memo } from 'react';
+import { View, StyleSheet } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const StarRating: FC<{ rating: number }> = ({ rating }) => {
   const fullStars = Math.floor(rating);
@@ -23,8 +23,8 @@ const StarRating: FC<{ rating: number }> = ({ rating }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
+    flexDirection: 'row',
   },
 });
 
-export default StarRating;
+export default memo(StarRating);

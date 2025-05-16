@@ -1,16 +1,15 @@
-import React, { FC, memo } from "react";
-import { View, StyleSheet, FlatList } from "react-native";
-import CartItem from "../molecules/CartItem";
-import OrderSummary from "../organisms/OrderSummary";
+import React, { FC, memo } from 'react';
+import { View, StyleSheet, FlatList } from 'react-native';
+import CartItem from '../molecules/CartItem';
+import OrderSummary from '../organisms/OrderSummary';
 import {
   CartItem as CartItemType,
   OrderSummary as OrderSummaryType,
-} from "../../types/cartTypes";
-import EmptyState from "../molecules/EmptyState";
-import { useNavigation } from "@react-navigation/native";
-import { CartScreenNavigationProp } from "../../navigation/types";
-import Text from "../atoms/Text";
-import Header from "../molecules/Header";
+} from '../../types/cartTypes';
+import EmptyState from '../molecules/EmptyState';
+import { useNavigation } from '@react-navigation/native';
+import { CartScreenNavigationProp } from '../../navigation/types';
+import Header from '../molecules/Header';
 
 interface CartTemplateProps {
   items: CartItemType[];
@@ -29,7 +28,7 @@ const CartTemplate: FC<CartTemplateProps> = memo(
           title="Your Cart is Empty"
           description="Looks like you haven't added any items yet"
           buttonText="Browse Products"
-          onPress={() => navigation.navigate("Products")}
+          onPress={() => navigation.navigate('Products')}
         />
       );
     }
@@ -58,7 +57,7 @@ const CartTemplate: FC<CartTemplateProps> = memo(
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f8f9fa",
+    backgroundColor: '#F8F9FA',
   },
   listContent: {
     padding: 16,

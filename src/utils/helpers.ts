@@ -1,7 +1,7 @@
-import { Product } from "../types/productTypes";
+import { Product } from '../types/productTypes';
 
 export const getCategory: (data: Product[]) => string[] = data => {
-  const temp: string[] = ["all"];
+  const temp: string[] = ['all'];
   for (const item of data) {
     if (!temp.includes(item.category)) {
       temp.push(item.category);
@@ -15,7 +15,7 @@ export const getProduct: (data: Product[], category: string) => Product[] = (
   category,
 ) => {
   const temp: Product[] = [];
-  if (category === "all") {
+  if (category === 'all') {
     return data;
   }
   for (const item of data) {

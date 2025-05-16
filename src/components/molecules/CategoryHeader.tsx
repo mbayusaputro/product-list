@@ -1,6 +1,6 @@
-import React, { FC } from "react";
-import { View, StyleSheet } from "react-native";
-import Text from "../atoms/Text";
+import React, { FC, memo } from 'react';
+import { View, StyleSheet } from 'react-native';
+import Text from '../atoms/Text';
 
 interface CategoryHeaderProps {
   title: string;
@@ -20,12 +20,12 @@ const styles = StyleSheet.create({
   container: {
     paddingVertical: 16,
     paddingHorizontal: 16,
-    backgroundColor: "#f8f9fa",
+    backgroundColor: '#f8f9fa',
   },
   title: {
     fontSize: 22,
-    color: "#000",
+    color: '#000',
   },
 });
 
-export default CategoryHeader;
+export default memo(CategoryHeader);

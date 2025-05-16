@@ -1,7 +1,7 @@
-import React, { FC } from "react";
-import { StyleSheet, ScrollView, TouchableOpacity } from "react-native";
-import Text from "../atoms/Text";
-import { toTitleCase } from "../../utils/helpers";
+import React, { FC, memo } from 'react';
+import { StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import Text from '../atoms/Text';
+import { toTitleCase } from '../../utils/helpers';
 
 interface IProps {
   categories: string[];
@@ -25,7 +25,7 @@ const CategoryNav: FC<IProps> = ({ categories, selected, onSelected }) => {
           }
           onPress={() => onSelected(category)}>
           <Text
-            color={category === selected ? "#FFFFFF" : undefined}
+            color={category === selected ? '#FFFFFF' : undefined}
             variant="semiBold">
             {toTitleCase(category)}
           </Text>
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   categoryItem: {
     marginRight: 10,
     borderWidth: 1,
-    borderColor: "#CCCCCC",
+    borderColor: '#CCCCCC',
     borderRadius: 16,
     paddingHorizontal: 10,
     paddingVertical: 2,
@@ -54,8 +54,8 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     paddingHorizontal: 10,
     paddingVertical: 2,
-    backgroundColor: "#000000",
+    backgroundColor: '#000000',
   },
 });
 
-export default CategoryNav;
+export default memo(CategoryNav);

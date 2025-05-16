@@ -1,13 +1,13 @@
-import React, { FC, memo } from "react";
+import React, { FC, memo } from 'react';
 import {
   TouchableOpacity,
   StyleSheet,
   TextStyle,
   ViewStyle,
   GestureResponderEvent,
-} from "react-native";
-import Text from "./Text";
-import Icon from "react-native-vector-icons/Ionicons";
+} from 'react-native';
+import Text from './Text';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 interface ButtonProps {
   title: string;
@@ -27,19 +27,14 @@ const Button: FC<ButtonProps> = memo(
         disabled={disabled}
         activeOpacity={0.7}>
         {icon && (
-          <Icon
-            name={icon}
-            size={18}
-            color="#FFFFFF"
-            style={{ marginRight: 10 }}
-          />
+          <Icon name={icon} size={18} color="#FFFFFF" style={styles.icon} />
         )}
         <Text
           variant="semiBold"
           style={{
             ...styles.buttonText,
             ...textStyle,
-            marginTop: icon ? 3 : undefined,
+            ...styles.text,
           }}>
           {title}
         </Text>
@@ -50,17 +45,23 @@ const Button: FC<ButtonProps> = memo(
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: "#000000",
+    backgroundColor: '#000000',
     paddingHorizontal: 24,
     borderRadius: 35,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     minWidth: 100,
     height: 50,
-    flexDirection: "row",
+    flexDirection: 'row',
+  },
+  icon: {
+    marginRight: 10,
+  },
+  text: {
+    marginTop: 3,
   },
   buttonText: {
-    color: "white",
+    color: 'white',
     fontSize: 14,
   },
   disabled: {

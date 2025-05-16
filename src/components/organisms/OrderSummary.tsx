@@ -1,9 +1,9 @@
-import React, { FC, memo } from "react";
-import { View, StyleSheet } from "react-native";
-import Text from "../atoms/Text";
-import PriceDisplay from "../molecules/PriceDisplay";
-import { OrderSummary as OrderSummaryType } from "../../types/cartTypes";
-import Button from "../atoms/Button";
+import React, { FC, memo } from 'react';
+import { View, StyleSheet } from 'react-native';
+import Text from '../atoms/Text';
+import PriceDisplay from '../molecules/PriceDisplay';
+import { OrderSummary as OrderSummaryType } from '../../types/cartTypes';
+import Button from '../atoms/Button';
 
 interface OrderSummaryProps {
   summary: OrderSummaryType;
@@ -17,7 +17,7 @@ const OrderSummary: FC<OrderSummaryProps> = memo(({ summary }) => {
       <View style={styles.totalContainer}>
         <Text variant="bold" size={16}>
           BagTotal: ({summary.itemCount} item
-          {summary.itemCount !== 1 ? "s" : ""})
+          {summary.itemCount !== 1 ? 's' : ''})
         </Text>
         <Text variant="bold" size={16}>
           ${summary.total.toFixed(2)}
@@ -33,16 +33,16 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     paddingVertical: 20,
     borderBottomWidth: 1,
-    borderBottomColor: "#E7E8E9",
+    borderBottomColor: '#E7E8E9',
   },
   totalContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     marginTop: 10,
     paddingBottom: 20,
     marginBottom: 30,
     borderBottomWidth: 1,
-    borderBottomColor: "#E7E8E9",
+    borderBottomColor: '#E7E8E9',
   },
 });
 

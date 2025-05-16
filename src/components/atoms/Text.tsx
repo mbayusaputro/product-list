@@ -1,6 +1,6 @@
-import React, { FC, memo, ReactNode } from "react";
-import { Text as RNText, StyleSheet, TextStyle } from "react-native";
-import { FontFamily, fonts, FontVariant } from "../../utils/font";
+import React, { FC, memo, ReactNode } from 'react';
+import { Text as RNText, StyleSheet, TextStyle } from 'react-native';
+import { FontFamily, fonts, FontVariant } from '../../utils/font';
 
 interface TextProps {
   children: ReactNode;
@@ -17,8 +17,8 @@ const Text: FC<TextProps> = memo(
     style,
     size,
     color,
-    fontFamily = "Poppins",
-    variant = "regular",
+    fontFamily = 'Poppins',
+    variant = 'regular',
   }) => {
     const fontStyle = {
       fontFamily: fonts[fontFamily][variant],
@@ -41,7 +41,7 @@ const Text: FC<TextProps> = memo(
 const styles = StyleSheet.create({
   text: {
     fontSize: 14,
-    color: "#000",
+    color: '#000',
   },
 });
 

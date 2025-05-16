@@ -1,7 +1,7 @@
-import React, { FC } from "react";
-import { View, StyleSheet, Modal } from "react-native";
-import Text from "../atoms/Text";
-import Button from "../atoms/Button";
+import React, { FC, memo } from 'react';
+import { View, StyleSheet, Modal } from 'react-native';
+import Text from '../atoms/Text';
+import Button from '../atoms/Button';
 
 interface CustomModalProps {
   visible: boolean;
@@ -14,9 +14,9 @@ interface CustomModalProps {
 const CustomModal: FC<CustomModalProps> = ({
   visible,
   onClose,
-  title = "Successful!",
-  message = "You have successfully updated\nyour cart list!",
-  buttonText = "OK",
+  title = 'Successful!',
+  message = 'You have successfully updated\nyour cart list!',
+  buttonText = 'OK',
 }) => {
   return (
     <Modal
@@ -42,16 +42,16 @@ const CustomModal: FC<CustomModalProps> = ({
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   modalView: {
-    width: "80%",
-    backgroundColor: "white",
+    width: '80%',
+    backgroundColor: 'white',
     borderRadius: 12,
     padding: 25,
-    alignItems: "center",
-    shadowColor: "#000",
+    alignItems: 'center',
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 2,
@@ -63,13 +63,13 @@ const styles = StyleSheet.create({
   modalTitle: {
     fontSize: 20,
     marginBottom: 15,
-    textAlign: "center",
+    textAlign: 'center',
   },
   modalMessage: {
     marginBottom: 25,
-    textAlign: "center",
+    textAlign: 'center',
     lineHeight: 24,
   },
 });
 
-export default CustomModal;
+export default memo(CustomModal);

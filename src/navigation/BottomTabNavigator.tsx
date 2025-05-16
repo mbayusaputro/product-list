@@ -1,15 +1,15 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import ProductsScreen from "../screens/ProductScreen";
-import ProductDetailScreen from "../screens/ProductDetailScreen";
-import CartScreen from "../screens/CartScreen";
-import FavoriteScreen from "../screens/FavoriteScreen";
-import { StyleSheet, View } from "react-native";
-import { useSelector } from "react-redux";
-import { RootState } from "../store/store";
-import { RootStackParamList } from "./types";
-import Icon from "react-native-vector-icons/Ionicons";
-import Text from "../components/atoms/Text";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ProductsScreen from '../screens/ProductScreen';
+import ProductDetailScreen from '../screens/ProductDetailScreen';
+import CartScreen from '../screens/CartScreen';
+import FavoriteScreen from '../screens/FavoriteScreen';
+import { StyleSheet, View } from 'react-native';
+import { useSelector } from 'react-redux';
+import { RootState } from '../store/store';
+import { RootStackParamList } from './types';
+import Icon from 'react-native-vector-icons/Ionicons';
+import Text from '../components/atoms/Text';
 
 // Create stack navigators for each tab
 const ProductStack = createNativeStackNavigator<RootStackParamList>();
@@ -41,6 +41,27 @@ const FavoritesStack = () => (
 
 const Tab = createBottomTabNavigator();
 
+const createTabIcon = (iconName: string) => {
+  return ({ color, size }: { color: string; size: number }) => (
+    <Icon name={iconName} color={color} size={size} />
+  );
+};
+
+const CartIcon = (cartItemCount: number) => {
+  return ({ color, size }: { color: string; size: number }) => (
+    <View style={styles.contain}>
+      <Icon name="bag-handle" color={color} size={size} />
+      {cartItemCount > 0 && (
+        <View style={styles.badge}>
+          <Text variant="semiBold" style={styles.badgeText}>
+            {cartItemCount}
+          </Text>
+        </View>
+      )}
+    </View>
+  );
+};
+
 const BottomTabNavigator = () => {
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const cartItemCount = cartItems.reduce(
@@ -51,8 +72,8 @@ const BottomTabNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarActiveTintColor: "#000000", // Active tab color
-        tabBarInactiveTintColor: "#D4D4D4", // Inactive tab color
+        tabBarActiveTintColor: '#000000', // Active tab color
+        tabBarInactiveTintColor: '#D4D4D4', // Inactive tab color
         tabBarStyle: {
           paddingBottom: 5, // Adjust for Android
           height: 60, // Tab bar height
@@ -65,10 +86,8 @@ const BottomTabNavigator = () => {
         name="Products"
         component={ProductsStack}
         options={{
-          tabBarLabel: "Home",
-          tabBarIcon: ({ color, size }) => (
-            <Icon name="home" color={color} size={size} />
-          ),
+          tabBarLabel: 'Home',
+          tabBarIcon: createTabIcon('home'),
           headerShown: false, // Hide default header
         }}
       />
@@ -78,19 +97,8 @@ const BottomTabNavigator = () => {
         name="Cart"
         component={CartsStack}
         options={{
-          tabBarLabel: "Cart",
-          tabBarIcon: ({ color, size }) => (
-            <View style={{ position: "relative" }}>
-              <Icon name="bag-handle" color={color} size={size} />
-              {cartItemCount > 0 && (
-                <View style={styles.badge}>
-                  <Text variant="semiBold" style={styles.badgeText}>
-                    {cartItemCount}
-                  </Text>
-                </View>
-              )}
-            </View>
-          ),
+          tabBarLabel: 'Cart',
+          tabBarIcon: CartIcon(cartItemCount),
           headerShown: false,
         }}
       />
@@ -100,10 +108,8 @@ const BottomTabNavigator = () => {
         name="Favorites"
         component={FavoritesStack}
         options={{
-          tabBarLabel: "Favorite",
-          tabBarIcon: ({ color, size }) => (
-            <Icon name="heart" color={color} size={size} />
-          ),
+          tabBarLabel: 'Favorite',
+          tabBarIcon: createTabIcon('heart'),
           headerShown: false,
         }}
       />
@@ -112,19 +118,20 @@ const BottomTabNavigator = () => {
 };
 
 const styles = StyleSheet.create({
+  contain: { position: 'relative' },
   badge: {
-    position: "absolute",
+    position: 'absolute',
     right: -10,
     top: -5,
-    backgroundColor: "red",
+    backgroundColor: 'red',
     borderRadius: 10,
     width: 20,
     height: 20,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   badgeText: {
-    color: "white",
+    color: 'white',
     fontSize: 12,
   },
 });

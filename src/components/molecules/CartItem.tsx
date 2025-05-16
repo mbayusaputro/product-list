@@ -1,8 +1,8 @@
-import React, { FC, memo } from "react";
-import { View, StyleSheet, Image } from "react-native";
-import QuantitySelector from "../atoms/QuantitySelector";
-import { CartItem as CartItemTypes } from "../../types/cartTypes";
-import Text from "../atoms/Text";
+import React, { FC, memo } from 'react';
+import { View, StyleSheet, Image } from 'react-native';
+import QuantitySelector from '../atoms/QuantitySelector';
+import { CartItem as CartItemTypes } from '../../types/cartTypes';
+import Text from '../atoms/Text';
 
 interface CartItemProps {
   item: CartItemTypes;
@@ -18,12 +18,7 @@ const CartItem: FC<CartItemProps> = memo(({ item, onQuantityChange }) => {
           {item.brand}
         </Text>
         <Text style={styles.productName}>{item.title}</Text>
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "flex-end",
-          }}>
+        <View style={styles.contain}>
           <Text variant="bold" style={styles.price}>
             ${item.price.toFixed(2)}
           </Text>
@@ -40,19 +35,24 @@ const CartItem: FC<CartItemProps> = memo(({ item, onQuantityChange }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     paddingVertical: 16,
     borderBottomWidth: 1,
-    borderBottomColor: "#E7E8E9",
+    borderBottomColor: '#E7E8E9',
+  },
+  contain: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-end',
   },
   image: {
     width: 100,
     height: 100,
     borderRadius: 16,
     marginRight: 12,
-    backgroundColor: "#E7E8E9",
+    backgroundColor: '#E7E8E9',
   },
   details: {
     flex: 1,
@@ -62,20 +62,20 @@ const styles = StyleSheet.create({
   },
   productName: {
     fontSize: 12,
-    color: "#797979",
+    color: '#797979',
     marginBottom: 8,
   },
   price: {
     fontSize: 16,
   },
   removeButton: {
-    backgroundColor: "transparent",
+    backgroundColor: 'transparent',
     borderWidth: 1,
-    borderColor: "#E7E8E9",
+    borderColor: '#E7E8E9',
     marginTop: 8,
   },
   removeButtonText: {
-    color: "#E7E8E9",
+    color: '#E7E8E9',
   },
 });
 

@@ -1,7 +1,7 @@
-import React, { FC } from "react";
-import { View, StyleSheet } from "react-native";
-import Button from "../atoms/Button";
-import Text from "../atoms/Text";
+import React, { FC, memo } from 'react';
+import { View, StyleSheet } from 'react-native';
+import Button from '../atoms/Button';
+import Text from '../atoms/Text';
 
 interface EmptyStateProps {
   title: string;
@@ -32,8 +32,8 @@ const EmptyState: FC<EmptyStateProps> = ({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     padding: 20,
   },
   image: {
@@ -44,17 +44,17 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     marginBottom: 8,
-    textAlign: "center",
+    textAlign: 'center',
   },
   description: {
     fontSize: 14,
-    color: "#666",
-    textAlign: "center",
+    color: '#666',
+    textAlign: 'center',
     marginBottom: 20,
   },
   button: {
-    width: "60%",
+    width: '60%',
   },
 });
 
-export default EmptyState;
+export default memo(EmptyState);

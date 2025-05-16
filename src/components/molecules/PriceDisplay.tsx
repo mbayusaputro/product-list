@@ -1,6 +1,6 @@
-import React, { FC, memo } from "react";
-import { View, StyleSheet } from "react-native";
-import Text from "../atoms/Text";
+import React, { FC, memo } from 'react';
+import { View, StyleSheet } from 'react-native';
+import Text from '../atoms/Text';
 
 interface PriceDisplayProps {
   label: string;
@@ -22,8 +22,8 @@ const PriceDisplay: FC<PriceDisplayProps> = memo(({ label, value }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     marginVertical: 5,
   },
 });

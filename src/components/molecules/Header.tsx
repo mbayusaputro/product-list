@@ -1,7 +1,7 @@
-import React, { FC } from "react";
-import { StyleSheet, TouchableOpacity } from "react-native";
-import Text from "../atoms/Text";
-import Icon from "react-native-vector-icons/Ionicons";
+import React, { FC, memo } from 'react';
+import { StyleSheet, TouchableOpacity } from 'react-native';
+import Text from '../atoms/Text';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 interface HeaderProps {
   icon?: string; // or use react-native-vector-icons
@@ -23,8 +23,8 @@ const Header: FC<HeaderProps> = ({ title, icon, onPress }) => {
 const styles = StyleSheet.create({
   container: {
     margin: 20,
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     marginBottom: 0,
   },
   text: {
@@ -34,4 +34,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Header;
+export default memo(Header);

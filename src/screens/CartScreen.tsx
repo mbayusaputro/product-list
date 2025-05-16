@@ -1,8 +1,8 @@
-import React, { FC, useMemo } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../store/store";
-import CartTemplate from "../components/templates/CartTemplate";
-import { updateQuantity, removeFromCart } from "../store/cartSlice";
+import React, { FC, useCallback, useMemo } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../store/store';
+import CartTemplate from '../components/templates/CartTemplate';
+import { updateQuantity, removeFromCart } from '../store/cartSlice';
 
 const CartScreen: FC = () => {
   const dispatch = useDispatch();
@@ -20,13 +20,16 @@ const CartScreen: FC = () => {
     return { subtotal, shipping, total, itemCount };
   }, [items]);
 
-  const handleQuantityChange = (id: number, quantity: number) => {
-    if (quantity < 0) {
-      dispatch(removeFromCart(id));
-    } else {
-      dispatch(updateQuantity({ id, quantity }));
-    }
-  };
+  const handleQuantityChange = useCallback(
+    (id: number, quantity: number) => {
+      if (quantity < 0) {
+        dispatch(removeFromCart(id));
+      } else {
+        dispatch(updateQuantity({ id, quantity }));
+      }
+    },
+    [dispatch],
+  );
 
   return (
     <CartTemplate

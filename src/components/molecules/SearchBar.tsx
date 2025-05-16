@@ -1,22 +1,21 @@
-import React, { FC, useState } from "react";
-import { View, TextInput, StyleSheet, TouchableOpacity } from "react-native";
-import Icon from "react-native-vector-icons/Ionicons";
+import React, { FC, memo } from 'react';
+import { View, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 interface SearchBarProps {
+  query: string;
   onSearch: (query: string) => void;
   onClear?: () => void;
   placeholder?: string;
 }
 
 const SearchBar: FC<SearchBarProps> = ({
+  query,
   onSearch,
   onClear,
-  placeholder = "Search...",
+  placeholder = 'Search...',
 }) => {
-  const [query, setQuery] = useState("");
-
   const handleClear = () => {
-    setQuery("");
     onClear?.();
   };
 
@@ -26,7 +25,6 @@ const SearchBar: FC<SearchBarProps> = ({
       <TextInput
         value={query}
         onChangeText={text => {
-          setQuery(text);
           onSearch(text);
         }}
         placeholder={placeholder}
@@ -44,9 +42,9 @@ const SearchBar: FC<SearchBarProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#F3F4F6",
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#F3F4F6',
     borderRadius: 35,
     paddingHorizontal: 12,
     margin: 16,
@@ -57,12 +55,12 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     fontSize: 16,
-    color: "#333",
-    fontFamily: "Poppins-Regular",
+    color: '#333',
+    fontFamily: 'Poppins-Regular',
   },
   clearButton: {
     padding: 4,
   },
 });
 
-export default SearchBar;
+export default memo(SearchBar);
