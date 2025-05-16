@@ -29,8 +29,8 @@ const ProductsScreen: FC = () => {
 
   const favorites = useMemo(() => getFavorite(products), [products]);
   const data = useMemo(
-    () => getProduct(products, isCategory),
-    [products, isCategory],
+    () => getProduct(favorites, isCategory),
+    [favorites, isCategory],
   );
   // Filter products based on search
   const filteredProducts = useMemo(

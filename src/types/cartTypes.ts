@@ -1,3 +1,5 @@
+import { Product } from './productTypes';
+
 export interface CartItem {
   id: number;
   brand: string;
@@ -13,4 +15,9 @@ export interface OrderSummary {
   shipping: number;
   total: number;
   itemCount: number;
+}
+
+export interface PayloadCart {
+  product: Product;
+  quantity: number;
 }

@@ -43,9 +43,9 @@ const ProductDetailScreen: FC<ProductDetailScreenProps> = ({ route }) => {
   );
 
   const onAddCart = useCallback(() => {
-    dispatch(addToCart(product));
+    dispatch(addToCart({ product, quantity: isStock }));
     setShow(true);
-  }, [dispatch, product]);
+  }, [dispatch, product, isStock]);
 
   const onCloseModal = useCallback(() => {
     setShow(prev => !prev);
